@@ -121,12 +121,9 @@ export const BurnPage = () => {
 
   useEffect(() => {
     if (!walletChain) return;
-    //console.log(suppliesChain);
+    
     let isSubscribed = true;
-    // const newTokenAddress = fetchAddressForChain(
-    //   walletChain?.id,
-    //   isOldToken ? "oldToken" : "newToken"
-    // );
+    
     if (isSubscribed) setBurnTransactions([]);
     const isTestnet = isChainTestnet(walletChain?.id);
     let _chainObjects: any[] = [mainnet, avalanche, fantom];
