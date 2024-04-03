@@ -15,7 +15,7 @@ import BurnTxTable from "./components/BurnTxTable";
 import useWallet from "./hooks/useWallet";
 import useChainSelector from "./hooks/useChainSelector";
 import useAppSupplies from "./hooks/useAppSupplies";
-import useEthersSigner from "./hooks/useEthersSigner";
+
 
 
 
