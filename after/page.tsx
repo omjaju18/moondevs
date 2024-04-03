@@ -161,6 +161,8 @@ export const BurnPage = () => {
     };
   }, [walletChain, isOldToken]);
 
+  /* Making all components in seperate file for make it more readable */
+
   return (
     <div>
       <DashboardLayoutStyled className="burnpage">
