@@ -12,11 +12,11 @@ import AppToast from "./components/AppToast";
 import BurnTxTable from "./components/BurnTxTable";
 
 
-import { useWallet } from "./hooks/useWallet";
-import { useChainSelector } from "./hooks/useChainSelector";
-import { useAppSupplies } from "./hooks/useAppSupplies";
-import { useEthersSigner } from "./hooks/useEthersSigner";
-import { ToastSeverity, useAppToast } from "./hooks/useAppToast";
+import useWallet from "./hooks/useWallet";
+import useChainSelector from "./hooks/useChainSelector";
+import useAppSupplies from "./hooks/useAppSupplies";
+import useEthersSigner from "./hooks/useEthersSigner";
+
 
 
 const BurnPageStyled = styled.div``;
@@ -37,9 +37,12 @@ export const BurnPage = () => {
     chains,
     openConnectModal,
   } = useWallet();
+
   const { openChainSelector, setOpenChainSelector, openChainSelectorModal } =
     useChainSelector();
+
   const { chains: receiveChains } = useWallet();
+
   const {
     supplies,
     allSupplies,
@@ -47,19 +50,29 @@ export const BurnPage = () => {
     suppliesChain,
     fetchSupplies,
   } = useAppSupplies(true);
+
   const [burnTransactions, setBurnTransactions] = useState<any[]>([]);
+
   const [isOldToken, setIsOldToken] = useState(false);
+
   const [burnAmount, setBurnAmount] = useState("");
+
   const { toastMsg, toastSev, showToast } = useAppToast();
+
   const ethersSigner = useEthersSigner({
     chainId: walletChain?.id ?? chainEnum.mainnet,
   });
+
   const [txButton, setTxButton] = useState<BurnTxProgress>(
     BurnTxProgress.default
   );
+
   const [txProgress, setTxProgress] = useState<boolean>(false);
+
   const [approveTxHash, setApproveTxHash] = useState<string | null>(null);
+
   const [burnTxHash, setBurnTxHash] = useState<string | null>(null);
+
   const [coinData, setCoinData] = useState<any>({});
 
   useEffect(() => {
